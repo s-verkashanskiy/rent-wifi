@@ -1,0 +1,23 @@
+<div class="page-header">
+    <h1>Аутентификация</h1>
+</div>
+
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <h6 id="error-message" style="color: rgb(238, 8, 8);">{{message}}</h6>
+        <form name="login" action="/login" method="post">
+            <div>
+                <label>E-mail:</label>
+                <input type="text" name="email" required/>
+           </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password" required/>
+           </div>
+            <br/>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Войти" />
+            </div>
+        </form>
+    </div>
+</div>

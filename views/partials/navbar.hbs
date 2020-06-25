@@ -1,0 +1,27 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul id="nav-mobile">
+      <ul class="left hide-on-med-and-down">
+        {{#if isHome }}
+          <li><a href="/map">Карта</a></li>
+        {{else}}
+          <li><a href="/">Главная</a></li>
+        {{/if}}
+        {{#if isAuth }}
+          <a id="stat" href="/stat">Статистика</a></li>
+        {{else}}
+          <li><a href="/signup">Регистрация</a></li>
+        {{/if}}
+      </ul>
+
+      <ul class="right hide-on-med-and-down">
+        {{#if isAuth}}
+          <li>{{userName}}</li>
+          <li><a href="/logout">Выйти</a></li>
+        {{else}}
+          <li><a class="modal-trigger" href="/login">Войти</a></li>
+        {{/if}}
+      </ul>
+    </ul>
+  </div>
+</nav>
