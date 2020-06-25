@@ -1,12 +1,21 @@
-<h1>{{title}}</h1>
+{{!-- <h1>{{title}}</h1>
 <br />
-<br />
+<br /> --}}
 
-{{#if deckList}}
+{{!-- {{#if deckList}}
   <h3>Список колод:</h3>
   {{#each deckList}}
     <div><a href="/user/list">{{title}}</a></div>
   {{/each}}
 {{/if}}
+{{htmlTemplate 'deckList'}} --}}
 
-{{!-- {{htmlTemplate 'deckList'}} --}}
+<div id="anime-demo">
+  <div class="square">
+    <p>Оцените все преимущества быстрого и безлимитного интернет-соединения на протяжении всего времени вашей поездки с арендой портативного WiFi роутера.
+       Вы можете забрать роутер в одной из точек аренды или же заказать услугу доставки до вашего отеля. </p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+<script src="/js/animeIndex.js"></script>
