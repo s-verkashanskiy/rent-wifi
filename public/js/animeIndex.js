@@ -7,9 +7,25 @@
 // });
 
 let animation = anime({
-  targets: '.square',
+  targets: '.text1',
   translateX: 130,
-  duration: 1500,
+  duration: 700,
   easing: 'linear',
   direction: 'linear',
-});  
+});
+
+animation = anime({
+  targets: '.text2',
+  translateX: -130,
+  duration: 700,
+  easing: 'linear',
+  direction: 'linear',
+});
+
+animation = anime({
+  targets: '.img1',
+  translateX: 0,
+  duration: 700,
+  easing: 'linear',
+  direction: 'linear',
+});
