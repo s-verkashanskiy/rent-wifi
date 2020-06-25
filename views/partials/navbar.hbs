@@ -1,27 +1,47 @@
+
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile">
       <ul class="left hide-on-med-and-down">
         {{#if isHome }}
-          <li><a href="/map">Карта</a></li>
+        <li><a href="/map">Карта</a></li>
         {{else}}
-          <li><a href="/">Главная</a></li>
+        <li><a href="/">Главная</a></li>
         {{/if}}
         {{#if isAuth }}
-          <a id="stat" href="/stat">Статистика</a></li>
+        <a id="stat" href="/stat">Статистика</a></li>
         {{else}}
-          <li><a href="/signup">Регистрация</a></li>
+        <li><a href="/signup">Регистрация</a></li>
         {{/if}}
       </ul>
 
       <ul class="right hide-on-med-and-down">
         {{#if isAuth}}
-          <li>{{userName}}</li>
-          <li><a href="/logout">Выйти</a></li>
+        <li>{{userName}}</li>
+        <li><a href="/logout">Выйти</a></li>
         {{else}}
-          <li><a class="modal-trigger" href="/login">Войти</a></li>
+        <li><a class="modal-trigger" href="/login">Войти</a></li>
         {{/if}}
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    
       </ul>
     </ul>
   </div>
 </nav>
+
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+
+
+{{!-- <ul id="dropdown1" class="dropdown-content">
+  {{#each languages}}
+    <li><a href="#!" value='{{@key}}'>{{this}}</a></li>
+  {{/each}}
+</ul> --}}
+

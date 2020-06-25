@@ -1,7 +1,13 @@
+const dropdown1 = document.querySelector('.dropdown-button');
+const options = {
+  'hover': true,
+  'closeOnClick': true,
+};
+M.Dropdown.init(dropdown1, options);
+
 if (document.getElementById('qqq')) {
   document.getElementById('qqq').addEventListener('click', async (event) => {
-    try {
-      if (event.target.id === 'stat') {
+    try {      if (event.target.id === 'stat') {
         // Отменяем дефолтное реагирование на нажатие кнопки
         event.preventDefault();
 
@@ -10,10 +16,7 @@ if (document.getElementById('qqq')) {
         const { status, username, rounds } = await responseponse.json();
 
         if (status === 200) {
-          // document.getElementById('navbar').innerHTML =
-          //   render('navbar', { isAuth: true, userName: username });
-          // document.getElementById('body').innerHTML =
-          //   render('stat', { username, rounds });
+
         }
       }
     }

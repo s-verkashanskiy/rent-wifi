@@ -8,6 +8,8 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import { cookiesCleaner } from './auth.js';
 import sessionFileStore from 'session-file-store';
+import translater from './translate.js';
+
 const FileStore = sessionFileStore(session);
 
 
@@ -55,6 +57,9 @@ export default function (app) {
     next();
   });
 
+  //translater
+  app.use(translater);
+  
   app.use(cookiesCleaner);
   
 
