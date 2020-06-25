@@ -1,6 +1,6 @@
 
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper light-blue darken-4">
     <ul id="nav-mobile">
       <ul class="left hide-on-med-and-down">
         {{#if isHome }}
@@ -22,8 +22,8 @@
         {{else}}
         <li><a class="modal-trigger" href="/login">Войти</a></li>
         {{/if}}
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>
     
       </ul>
     </ul>
@@ -31,12 +31,10 @@
 </nav>
 
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  {{#each languages}}
+    <li><a href='/translation?lang={{@key}}'>{{this}}</a></li>
+  {{/each}}
 </ul>
-
 
 
 {{!-- <ul id="dropdown1" class="dropdown-content">

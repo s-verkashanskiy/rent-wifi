@@ -1,10 +1,3 @@
-const dropdown1 = document.querySelector('.dropdown-button');
-const options = {
-  'hover': true,
-  'closeOnClick': true,
-};
-M.Dropdown.init(dropdown1, options);
-
 if (document.getElementById('qqq')) {
   document.getElementById('qqq').addEventListener('click', async (event) => {
     try {      if (event.target.id === 'stat') {
@@ -84,3 +77,11 @@ function render(templateName, data = {}) {
   const str = document.getElementById(templateName + 'Template').content.textContent;
   return window.Handlebars.compile(str)(data);
 }
+
+
+const dropdown1 = document.querySelector('.dropdown-trigger');
+const options = {
+  hover: false,
+  closeOnClick: true,
+};
+M.Dropdown.init(dropdown1, options);

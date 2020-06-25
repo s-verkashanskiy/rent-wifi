@@ -1,10 +1,11 @@
 import translate from '@vitalets/google-translate-api';
 
-const tranlater = async (text, to = 'en', from = 'ru') => {
+const tranlater = async (text, to = 'ru', from = 'ru') => {
   const result = await translate(text,
     { from, to });
   return result.text;
 };
+
 export default async (req, res, next) => {
   const dict = Object.entries(req.app.locals.dict);
   const translated = await Promise.all(dict.map(([, value]) => {
@@ -16,6 +17,8 @@ export default async (req, res, next) => {
   }, {});
   next();
 };
+
+
 // async function __(text, to = 'en', from = 'ru') {
 //   const result = await translate(text,
 //     { from, to });

@@ -1,10 +1,14 @@
-import express from '../';
+import express from 'express';
 const router = express.Router();
-import automatList from '../seed/seeder.js';
 
-router.get('/q', async (req, res) => {
+
+router.get('/', async (req, res) => {
   try {
-    res.render('map');
+    req.session.currentLang = req.query.lang;
+    console.log('req.session.currentLang', req.session.currentLang);
+    
+    const hbs = req.headers.referer.slice(22);
+    res.render(hbs);
   } catch (error) { next(error) }
 });
 
