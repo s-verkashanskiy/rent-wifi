@@ -14,6 +14,13 @@ import { languages, dict } from '../seed/seeder.js';
 const FileStore = sessionFileStore(session);
 
 export default function (app) {
+  // translater
+  app.locals.languages = languages;
+  app.locals.currentLang = languages.ru;
+  app.locals.dict = dict;
+
+  // app.use(translater);
+
   app.use(morgan('dev'));
 
   // Body POST запросов.
@@ -52,14 +59,13 @@ export default function (app) {
     if (req.session.user) {
       res.locals.userName = req.session.user.username;
     }
+    // res.locals.dict = dict;
+    // console.log(res.locals.dict.ru.index.intro);
+
     next();
   });
 
-  // translater
-  app.use(translater);
-  app.locals.languages = languages;
-  app.locals.currentLang = languages.ru;
-  app.locals.dict = dict;
+
 
   hbs.registerHelper('htmlTemplate', (name) => {
     hbs.cachedTemplates = hbs.cachedTemplates || {};

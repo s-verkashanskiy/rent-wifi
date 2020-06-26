@@ -162,11 +162,14 @@ export const languages = {
 
 export const dict = {
   ru: {
+    navbar1: {
+      btn1: 'Карта',
+      btn2: 'Главная',
+    },
+    navbar2: { btn2: 'Регистрация' },
+    navbar3: { btn3: 'Войти' },
+    navbar4: { btn4: 'Язык' },
     index: {
-      navbar1: { btn1: 'Главная' },
-      navbar2: { btn2: 'Регистрация' },
-      navbar3: { btn3: 'Войти' },
-      navbar4: { btn4: 'Язык' },
       intro: `Оцените все преимущества быстрого и безлимитного интернет-соединения 
   на протяжении всего времени вашей поездки с арендой портативного WiFi роутера. 
   Вы можете забрать роутер в одной из точек аренды или же 
@@ -191,4 +194,5 @@ export const dict = {
     },
   },
 };
+console.log(dict)
 export default automatList;
