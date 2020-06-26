@@ -1,7 +1,7 @@
 /* #anime-demo {
   text-align: left;
 } */
-.text1 {
+/* .text1 {
   font-size: 1.4em;
   pointer-events: none;
   position: relative;
@@ -20,9 +20,9 @@
   background-image: url('../img/wifi-hand.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  /* Подключаем свойство transform-style для 3D */
+  
   transform-style: preserve-3d;
-  /* Подключаем анимацию для вращения и обзора */
+  
   animation: main-rotate 10s infinite linear;
 }
 .text2 {
@@ -40,4 +40,4 @@
   100% {
     transform: rotateY(360deg);
   }
-}
+} */

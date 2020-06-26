@@ -1,3 +1,30 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        height: 300px;
+      }
+      
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: aqua;
+      } */
+
 .nav-wrapper {
   padding: 0 2rem;
+}
+.img1 {
+  margin-left: 230px;
+  width: 650px;
+  height: 450px;
+  display: inline-block;
+  border-radius: 6px;
+  box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);
+  background-image: url('/img/wifi-hand.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
 }
