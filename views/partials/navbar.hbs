@@ -9,21 +9,21 @@
         <li><a href="/">{{dict.ru.navbar1.btn2}}</a></li>
         {{/if}}
         {{#if isAuth }}
-        <a id="stat" href="/stat">Статистика</a></li>
+        <a id="stat" href="/stat">{{dict.ru.navbar2.btn2}}</a></li>
         {{else}}
-        <li><a href="/signup">Регистрация</a></li>
+        <li><a href="/signup">{{dict.ru.navbar2.btn1}}</a></li>
         {{/if}}
       </ul>
 
       <ul class="right hide-on-med-and-down">
         {{#if isAuth}}
         <li>{{userName}}</li>
-        <li><a href="/logout">Выйти</a></li>
+        <li><a href="/logout">{{dict.ru.navbar3.btn2}}</a></li>
         {{else}}
-        <li><a class="modal-trigger" href="/login">Войти</a></li>
+        <li><a class="modal-trigger" href="/login">{{dict.ru.navbar3.btn1}}</a></li>
         {{/if}}
         <!-- Dropdown Trigger -->
-        <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-trigger" data-target="dropdown1">{{dict.ru.navbar4.btn1}}<i class="material-icons right">arrow_drop_down</i></a></li>
     
       </ul>
     </ul>
