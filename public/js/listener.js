@@ -1,21 +1,21 @@
-if (document.getElementById('qqq')) {
-  document.getElementById('qqq').addEventListener('click', async (event) => {
-    try {
-      if (event.target.id === 'stat') {
-      // Отменяем дефолтное реагирование на нажатие кнопки
-        event.preventDefault();
+// if (document.getElementById('qqq')) {
+//   document.getElementById('qqq').addEventListener('click', async (event) => {
+//     try {
+//       if (event.target.id === 'stat') {
+//       // Отменяем дефолтное реагирование на нажатие кнопки
+//         event.preventDefault();
 
-        // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
-        const responseponse = await fetch('/stat', { method: 'GET' });
-        const { status, username, rounds } = await responseponse.json();
+//         // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
+//         const responseponse = await fetch('/stat', { method: 'GET' });
+//         const { status, username, rounds } = await responseponse.json();
 
-        if (status === 200) {
+//         if (status === 200) {
 
-        }
-      }
-    } catch (err) { console.error(err); }
-  });
-}
+//         }
+//       }
+//     } catch (err) { console.error(err); }
+//   });
+// }
 
 if (document.forms.signup) {
   document.forms.signup.addEventListener('submit', async (event) => {
@@ -40,35 +40,25 @@ if (document.forms.signup) {
         }),
       });
       // Перейти на страницу аутентификации если нет ошибок
-
+      
       // есть ошибки ...
-      const { status, error } = await response.json();
-      console.log(status, error);
-
-      // if (status) document.location.replace("/login");
-
-      // document.getElementById('body').innerHTML =
-      // render('signup', { error, errUnqUser, errUnqEmail });
-      // Обработка ошибок сохранения в БД
-      // let errorMessage = '';
-      // // Поля не заполнены
-      // if (error && error.username) {
-      //   errorMessage += error.username.properties.message + '\n';
-      // }
-      // if (error && error.email) {
-      //   errorMessage += error.email.properties.message + '\n';
-      // }
-      // document.getElementById('error-message').innerText = errorMessage;
-
-      // // Введенные значения не уникальны
-      // errorMessage = '';
-      // if (errUnqUser) {
-      //   errorMessage += errUnqUser + '\n';
-      // }
-      // if (errUnqEmail) {
-      //   errorMessage += errUnqEmail;
-      // }
-      // document.getElementById('unique-message').innerText = errorMessage;
+      const { status, errUnqUser, errUnqEmail, error } = await response.json();
+      if (status === 200) {
+        window.location.href = '/login';
+        // if (status) document.location.replace("/login");
+      }
+      
+      // Обработка ошибок уникальности логина и почты
+      if (errUnqUser || errUnqEmail) {
+        document.getElementById('errors-unique').innerHTML =
+        render('error', { errUnqUser, errUnqEmail });
+      };
+      // Обработка ошибок уникальности на уровне БД
+      if (error) {
+        document.getElementById('errors-error').innerHTML =
+        render('error', { error });
+      };
+      
     } catch (err) { console.error(err); }
   });
 }

@@ -17,28 +17,30 @@ router
   .get((req, res) => {
     res.render('signup');
   })
-  .post(async (req, res, next) => {
-    // let errUnqUser, errUnqEmail, isError = false;
+  .post(async (req, res) => {
+    let errUnqUser, errUnqEmail, isError = false;
     try {
       const { username, email, password } = req.body;
 
-      // if (username && await User.findOne({username})) {
-      //   errUnqUser = 'Такое имя уже занято';
-      //   isError = true;
-      // };
-      // if (email && await User.findOne({email})) {
-      //   errUnqEmail = 'Введенный e-mail, к сожалению, занят';
-      //   isError = true;
-      // };
+      if (username && await User.findOne({username})) {
+        errUnqUser = 'Такое имя уже занято';
+        isError = true;
+      };
+      if (email && await User.findOne({email})) {
+        errUnqEmail = 'Введенный e-mail, к сожалению, занят';
+        isError = true;
+      };
 
-      // if (!isError) {
-      await new User({
-        username,
-        email,
-        password: await bcrypt.hash(password, saltRounds),
-      }).save();
-      return res.end();
-      res.end();
+      if (!isError) {
+        await new User({
+          username,
+          email,
+          password: await bcrypt.hash(password, saltRounds),
+        }).save();
+        return res.json({ status: 200 });
+      }
+
+      res.json({ status: 401, errUnqUser, errUnqEmail });
     } catch (error) {
       console.log(error);
 
@@ -60,9 +62,11 @@ router
 
       if (user && (await bcrypt.compare(password, user.password))) {
         req.session.user = user;
-        if (session.prevUrl) {
-          res.redirect(session.prevUrl);
-          delete session.prevUrl;
+        console.log('111111111111111111', req.session.user, req.session.prevUrl);
+        
+        if (req.session.prevUrl) {
+          res.redirect(req.session.prevUrl);
+          delete req.session.prevUrl;
         } else res.redirect('/');
       } else if (!user) {
         res.render('login', { message: 'Введенный e-mail не зарегистрирован' });

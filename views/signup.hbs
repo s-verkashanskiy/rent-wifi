@@ -5,8 +5,8 @@
 
 <div class="container row">
     <div class="jumbotron col-sm-4 pull-center">
-      <h6 id="error-message" style="color: rgb(238, 8, 8);">{{error-message}}</h6>
-      <h6 id="unique-message" style="color: rgb(203, 238, 8);">{{unique-message}}</h6>
+      <div id="errors-unique"></div>
+      <div id="errors-error"></div>
         <form name="signup" action="/signup" method="post">
             <div>
                 <label>Username:</label>
@@ -25,3 +25,4 @@
             </div>
     </div>
 </div>
+{{htmlTemplate 'error'}}

@@ -2,7 +2,7 @@
 <nav>
   <div class="nav-wrapper light-blue darken-4">
     <ul id="nav-mobile">
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <ul class="left">
         {{#if isAdmin }}
           <li><a href="/map">Карта</a></li>
           <li><a id="automats" href="/admin/automats">Автоматы</a></li>
@@ -20,7 +20,7 @@
         {{/if}}
       </ul>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul class="right">
         {{#if isAdmin }}
           <li>{{userName}}</li>
           <li><a id="profile" href="/admin/profile">Профиль</a></li>

@@ -1,0 +1,13 @@
+{{#if errUnqUser}}
+  <h6 style="color: rgb(238, 81, 8);">{{errUnqUser}}</h6>
+{{/if}}
+{{#if errUnqEmail}}
+  <h6 style="color: rgb(238, 81, 8);">{{errUnqEmail}}</h6>
+{{/if}}
+
+{{#if error.errors.username}}
+  <h6 style="color: rgb(250, 7, 7);">{{error.errors.username.properties.message}}</h6>
+{{/if}}
+{{#if error.errors.email}}
+  <h6 style="color: rgb(250, 7, 7);">{{error.errors.email.properties.message}}</h6>
+{{/if}}
