@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Не забудьте указать пароль, пожалуйста"],
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   registrationDate: {
     type: String,
     default: new Date().toUTCString(),

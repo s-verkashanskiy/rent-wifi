@@ -10,6 +10,7 @@
     "start": "fuser -n tcp -k 3000; clear; node server.js"
   },
   "dependencies": {
+    "@vitalets/google-translate-api": "^3.0.0",
     "animejs": "^3.2.0",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",

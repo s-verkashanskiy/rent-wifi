@@ -46,12 +46,11 @@ export default function (app) {
       cookie: {
         expires: 6000000,
       },
-    })
+    }),
   );
 
   app.use((req, res, next) => {
     res.locals.isAuth = !!req.session.user;
-    app.locals.currentLang = req.session.currentLang;
     if (req.session.user) {
       res.locals.userName = req.session.user.username;
     }
@@ -68,8 +67,6 @@ export default function (app) {
   Вы можете забрать роутер в одной из точек аренды или же 
   заказать услугу доставки до вашего отеля.`,
 };
-
-  app.use(cookiesCleaner);
   
 
   hbs.registerHelper('htmlTemplate', (name) => {

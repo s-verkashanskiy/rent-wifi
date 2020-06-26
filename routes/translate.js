@@ -4,12 +4,13 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    req.session.currentLang = req.query.lang;
     console.log('req.session.currentLang', req.session.currentLang);
     
     const hbs = req.headers.referer.slice(22);
-    res.render(hbs);
-  } catch (error) { next(error) }
+    req.app.locals.currentLang = req.app.locals.languages[req.query.lang];
+    
+    res.redirect(hbs || '/');
+  } catch (error) { next(error) };
 });
 
 

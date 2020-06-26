@@ -38,6 +38,10 @@ const automatSchema = new mongoose.Schema({
       default: 2,
     },
   },
+  lastUpdateTime: {
+    type: String,
+    default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
+  },
   registrationDate: {
     type: String,
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),

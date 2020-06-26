@@ -1,0 +1,18 @@
+<h4>Раздел редактирования настроек автоматов</h4>
+<br />
+<a href="/admin/automats/edit/{{this._id}}" class="waves-effect waves-light btn">Добавить автомат</a>
+<br /><br />
+{{#each automatList}}
+  <div><b>Номер автомата: </b>{{this.id}}</div>
+  <div><b>Адрес: </b>{{this.adress.title}}</div>
+  <div><b>GPS-координаты: </b>lat: {{this.adress.position.lat}}; lng: {{this.adress.position.lng}}</div>
+  <div><b>Статус: </b>{{this.status.flag}}</div>
+  <div><b>описание статуса: </b>{{this.status.description}}</div>
+  <div><b>Количество роутеров (в наличии): </b>{{this.quantity.routers}}</div>
+  <div><b>Свободных ячеек: </b>{{this.quantity.freeCells}}</div>
+  <div><b>Дата последнего обновления: </b>{{this.lastUpdateTime}}</div>
+  <div><b>Дата добавления в базу: </b>{{this.registrationDate}}</div>
+  <span><a href="/admin/automats/edit/{{this._id}}">редактировать</a>, 
+  <a href="/admin/automats/delete/{{this._id}}">удалить</a></span>
+  <br /><br />
+{{/each}}

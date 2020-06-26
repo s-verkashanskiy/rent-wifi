@@ -3,28 +3,38 @@
   <div class="nav-wrapper light-blue darken-4">
     <ul id="nav-mobile">
       <ul class="left hide-on-med-and-down">
-        {{#if isHome }}
-        <li><a href="/map">Карта</a></li>
+        {{#if isAdmin }}
+          <li><a href="/map">Карта</a></li>
+          <li><a id="automats" href="/admin/automats">Автоматы</a></li>
+          <li><a id="interfaces" href="/admin/interfaces">Интерфейс</a></li>
+          <li><a id="settings" href="/admin/settings">Настройки сайта</a></li>
         {{else}}
-        <li><a href="/">Главная</a></li>
-        {{/if}}
-        {{#if isAuth }}
-        <a id="stat" href="/stat">Статистика</a></li>
-        {{else}}
-        <li><a href="/signup">Регистрация</a></li>
+          {{#if isHome }}
+            <li><a href="/map">Карта</a></li>
+          {{else}}
+            <li><a href="/">Главная</a></li>
+          {{/if}}
+          {{#if isAuth }}{{else}}
+            <li><a href="/signup">Регистрация</a></li>
+          {{/if}}
         {{/if}}
       </ul>
 
       <ul class="right hide-on-med-and-down">
-        {{#if isAuth}}
-        <li>{{userName}}</li>
-        <li><a href="/logout">Выйти</a></li>
+        {{#if isAdmin }}
+          <li>{{userName}}</li>
+          <li><a id="profile" href="/admin/profile">Профиль</a></li>
+          <li><a href="/logout">Выйти</a></li>
         {{else}}
-        <li><a class="modal-trigger" href="/login">Войти</a></li>
+          {{#if isAuth}}
+            <li>{{userName}}</li>
+            <li><a href="/logout">Выйти</a></li>
+          {{else}}
+            <li><a class="modal-trigger" href="/login">Войти</a></li>
+          {{/if}}
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>    
         {{/if}}
-        <!-- Dropdown Trigger -->
-        <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>
-    
       </ul>
     </ul>
   </div>
@@ -35,11 +45,3 @@
     <li><a href='/translation?lang={{@key}}'>{{this}}</a></li>
   {{/each}}
 </ul>
-
-
-{{!-- <ul id="dropdown1" class="dropdown-content">
-  {{#each languages}}
-    <li><a href="#!" value='{{@key}}'>{{this}}</a></li>
-  {{/each}}
-</ul> --}}
-
