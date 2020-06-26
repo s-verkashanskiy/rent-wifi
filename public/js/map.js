@@ -36,9 +36,9 @@ async function initMap() {
 
     info[i] = new google.maps.InfoWindow({
       content: `<div style="font-size: 12px">нажмите, чтобы построить маршрут:<br />
-      <b><a target="_blank" href="https://maps.google.com?saddr=Current+Location&daddr=
+      <b><a target="_blank" href="https://maps.google.com?saddr=Мое+Местоположение&daddr=
       ${automatList[i].adress.position.lat},${automatList[i].adress.position.lng}">
-      ${automatList[i].adress.title}</a></b>`,
+      ${automatList[i].adress.title}</a></b></div>`,
     });
 
     markers[i].addListener('click', () => {

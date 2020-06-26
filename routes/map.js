@@ -15,13 +15,4 @@ router.route('/')
   });
 
 
-router.get('/q', async (req, res) => {
-  try {
-
-
-    res.render('map');
-  } catch (error) { next(error) }
-});
-
-
 export default router;
