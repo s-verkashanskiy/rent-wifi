@@ -13,5 +13,4 @@ app.use('/', indexRouter);
 app.use('/map', mapRouter);
 app.use('/translation', translationRouter);
 
-
 export default app;
