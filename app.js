@@ -15,5 +15,4 @@ app.use('/map', mapRouter);
 app.use('/translation', translationRouter);
 app.use('/admin', adminRouter);
 
-
 export default app;

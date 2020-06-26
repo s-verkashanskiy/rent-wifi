@@ -2,7 +2,7 @@
 <nav>
   <div class="nav-wrapper light-blue darken-4">
     <ul id="nav-mobile">
-      <ul class="left hide-on-med-and-down">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
         {{#if isAdmin }}
           <li><a href="/map">Карта</a></li>
           <li><a id="automats" href="/admin/automats">Автоматы</a></li>
@@ -10,17 +10,17 @@
           <li><a id="settings" href="/admin/settings">Настройки сайта</a></li>
         {{else}}
           {{#if isHome }}
-            <li><a href="/map">Карта</a></li>
+            <li><a href="/map">{{dict.ru.navbar1.btn1}}</a></li>
           {{else}}
-            <li><a href="/">Главная</a></li>
+            <li><a href="/">{{dict.ru.navbar1.btn2}}</a></li>
           {{/if}}
           {{#if isAuth }}{{else}}
-            <li><a href="/signup">Регистрация</a></li>
+            <li><a href="/signup">{{dict.ru.navbar2.btn1}}</a></li>
           {{/if}}
         {{/if}}
       </ul>
 
-      <ul class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if isAdmin }}
           <li>{{userName}}</li>
           <li><a id="profile" href="/admin/profile">Профиль</a></li>
@@ -28,9 +28,9 @@
         {{else}}
           {{#if isAuth}}
             <li>{{userName}}</li>
-            <li><a href="/logout">Выйти</a></li>
+            <li><a href="/logout">{{dict.ru.navbar3.btn2}}</a></li>
           {{else}}
-            <li><a class="modal-trigger" href="/login">Войти</a></li>
+            <li><a class="modal-trigger" href="/login">{{dict.ru.navbar3.btn1}}</a></li>
           {{/if}}
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>    

@@ -9,10 +9,6 @@
 }
  .text1 {
   font-size: 1.4em;
-  pointer-events: none;
-  position: relative;
-  margin: 4px;
-  display: inline-block;
 }
 .img1 {
   width: 650px;
@@ -28,21 +24,7 @@
   animation: main-rotate 10s infinite linear;
 }
 .text2 {
-<<<<<<< HEAD
-  /* left: 20%; */
   font-size: 1.4em;
-  pointer-events: none;
-  position: relative;
-  /* width: 950px;
-  height: 130px; */
-  margin: 4px;
-  display: inline-block;
-=======
-  /* left: 28%; */
-  font-size: 1.4em;
-  width: 70%;
-  height: 29hv;
->>>>>>> 172cebaed3cda1d313014bcc0c9354ab7b9fafb2
 }
 
 @keyframes main-rotate {

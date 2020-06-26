@@ -1,3 +1,7 @@
+.nav-wrapper {
+  padding: 0 2rem;
+}
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 #map {
@@ -11,9 +15,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(221, 221, 221);
-}
-*/ .nav-wrapper {
-  padding: 0 2rem;
 }
 
 

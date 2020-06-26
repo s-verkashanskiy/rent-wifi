@@ -1,7 +1,8 @@
 if (document.getElementById('qqq')) {
   document.getElementById('qqq').addEventListener('click', async (event) => {
-    try {      if (event.target.id === 'stat') {
-        // Отменяем дефолтное реагирование на нажатие кнопки
+    try {
+      if (event.target.id === 'stat') {
+      // Отменяем дефолтное реагирование на нажатие кнопки
         event.preventDefault();
 
         // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
@@ -12,23 +13,24 @@ if (document.getElementById('qqq')) {
 
         }
       }
-    }
-    catch (err) { console.error(err) };
+    } catch (err) { console.error(err); }
   });
 }
 
-if (!!document.forms.signup) {
+if (document.forms.signup) {
   document.forms.signup.addEventListener('submit', async (event) => {
     try {
       // Отменяем дефолтное реагирование на нажатие кнопки
       event.preventDefault();
 
-      const { method, action, username, email, password } = event.target;
+      const {
+        method, action, username, email, password,
+      } = event.target;
       // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
       const response = await fetch(action, {
         method,
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           // Считываем значение из полей формы (относительно нажатой кнопки)
@@ -38,11 +40,11 @@ if (!!document.forms.signup) {
         }),
       });
       // Перейти на страницу аутентификации если нет ошибок
-      
+
       // есть ошибки ...
       const { status, error } = await response.json();
       console.log(status, error);
-      
+
       // if (status) document.location.replace("/login");
 
       // document.getElementById('body').innerHTML =
@@ -67,17 +69,14 @@ if (!!document.forms.signup) {
       //   errorMessage += errUnqEmail;
       // }
       // document.getElementById('unique-message').innerText = errorMessage;
-    }
-    catch (err) { console.error(err) };
+    } catch (err) { console.error(err); }
   });
 }
 
-
 function render(templateName, data = {}) {
-  const str = document.getElementById(templateName + 'Template').content.textContent;
+  const str = document.getElementById(`${templateName}Template`).content.textContent;
   return window.Handlebars.compile(str)(data);
 }
-
 
 const dropdown1 = document.querySelector('.dropdown-trigger');
 const options = {
