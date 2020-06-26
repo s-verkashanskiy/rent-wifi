@@ -5,7 +5,7 @@
   "description": "## Общая информация  Мы собираемся создать веб-приложение для флэш-карт. Наше приложение предоставит пользователям возможность использования флэш-карты.  Пользователь выберет колоду и сыграет партию с флэш-картами.",
   "main": ".eslintrc.js",
   "scripts": {
-    "dev": "fuser -n tcp -k 3000; clear; nodemon server.js",
+    "dev": "fuser -n tcp -k 3000; clear; nodemon server.js --ignore sessions",
     "seed": "node ./seed/seeder.js",
     "start": "fuser -n tcp -k 3000; clear; node server.js"
   },
