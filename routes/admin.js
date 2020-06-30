@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import automatList from '../seed/seeder.js';
+import { automatList } from '../seed/seeder.js';
 
 
 router.get('/', async (req, res) => {
@@ -13,7 +13,7 @@ router.route('/automats')
   .get((req, res) => {
     try {
       
-      res.render('admin/automats/automats', { isAdmin: true, automatList });
+      res.render('admin/automats/automats', { automatList });
     } catch (error) { next(error) };
   })
   .post((req, res) => {

@@ -1,6 +1,18 @@
-<h3>{{dict.ru.map.text1}}</h3>
-<div id="map"></div>
+<h4>{{dict.map.title}}</h4>
+<div class="row">
+<div class="input-field col s3">
+  <select id="select">
+    <option disabled selected>Ваш город</option>
+    {{#each cities}}
+    <option><a href='/map/{{this.title}}'>{{this.title}}</a></option>
+    {{/each}}
+  </select>   
+</div>
+</div>
+{{!-- Контейнер для гугл-карты --}}
+<div id="map" name="{{currentCity}}"></div>
 <script src="/js/map.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4LCL0f3WH3lN45xgK6K3yLv7TZqXWBYw&callback=initMap&libraries=&v=weekly"></script>
 {{!-- <style rel="stylesheet" href="/css/map.css"> --}}
+

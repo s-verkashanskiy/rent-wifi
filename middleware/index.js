@@ -7,19 +7,18 @@ import './db-connect.js';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import sessionFileStore from 'session-file-store';
-import { cookiesCleaner } from './auth.js';
-import translater from './translate.js';
-import { languages, dict } from '../seed/seeder.js';
+import { dict } from '../seed/seeder.js';
 
 const FileStore = sessionFileStore(session);
 
 export default function (app) {
   // translater
-  app.locals.languages = languages;
-  app.locals.currentLang = languages.ru;
   app.locals.dict = dict;
+  // app.locals.languages = dict.ru.languages;
+  // app.locals.currentLang = dict.ru.languages.ru;
 
   // app.use(translater);
+
 
   app.use(morgan('dev'));
 
@@ -55,17 +54,25 @@ export default function (app) {
 
   app.use((req, res, next) => {
     res.locals.isAuth = !!req.session.user;
+    
+    res.locals.currentCity = req.session.currentCity || dict.ru.map.cities[0];
+
+    res.locals.dict = req.session.dict || dict.ru;
+    res.locals.languages = req.session.languages || dict.ru.languages;
+    res.locals.currentLang = req.session.currentLang || dict.ru.languages.ru;
+    res.locals.currentLangShort = req.session.currentLangShort || 'ru';
+
     if (req.session.user) {
       res.locals.userName = req.session.user.username;
+      res.locals.isAdmin = req.session.user.isAdmin;
     }
-
     next();
   });
 
   hbs.registerHelper('htmlTemplate', (name) => {
     hbs.cachedTemplates = hbs.cachedTemplates || {};
     const template = hbs.cachedTemplates[name]
-      || fs.readFileSync(`views/partials/${name}.hbs`, 'utf8');
+      || fs.readFileSync(`views/${name}.hbs`, 'utf8');
     hbs.cachedTemplates[name] = template;
     return new hbs.handlebars.SafeString(
       `<template id="${name}Template">

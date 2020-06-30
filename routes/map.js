@@ -1,17 +1,15 @@
 import express from 'express';
 const router = express.Router();
-import automatList from '../seed/seeder.js';
+import { automatList, cities }  from '../seed/seeder.js';
 
-
-router.route('/')
+router.route('/:id')
   .get((req, res) => {
-    try {
-      res.render('map');
-    } catch (error) { next(error) };
+    req.session.currentCity = req.params.id;
+    res.render('map', { cities, currentCity: req.params.id});
   })
   .post((req, res) => {
     
-    res.json({ automatList });
+    res.json({ automatList, cities });
   });
 
 

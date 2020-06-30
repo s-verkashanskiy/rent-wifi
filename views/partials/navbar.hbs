@@ -4,18 +4,18 @@
     <ul id="nav-mobile">
       <ul class="left">
         {{#if isAdmin }}
-          <li><a href="/map">Карта</a></li>
+          <li><a href="/map/{{currentCity}}">Карта</a></li>
           <li><a id="automats" href="/admin/automats">Автоматы</a></li>
           <li><a id="interfaces" href="/admin/interfaces">Интерфейс</a></li>
           <li><a id="settings" href="/admin/settings">Настройки сайта</a></li>
         {{else}}
           {{#if isHome }}
-            <li><a href="/map">{{dict.ru.navbar1.btn1}}</a></li>
+            <li><a href="/map/{{currentCity}}">{{dict.navbar.btn1}}</a></li>
           {{else}}
-            <li><a href="/">{{dict.ru.navbar1.btn2}}</a></li>
+            <li><a href="/">{{dict.navbar.btn2}}</a></li>
           {{/if}}
           {{#if isAuth }}{{else}}
-            <li><a href="/signup">{{dict.ru.navbar2.btn1}}</a></li>
+            <li><a href="/signup">{{dict.navbar.btn3}}</a></li>
           {{/if}}
         {{/if}}
       </ul>
@@ -28,9 +28,9 @@
         {{else}}
           {{#if isAuth}}
             <li>{{userName}}</li>
-            <li><a href="/logout">{{dict.ru.navbar3.btn2}}</a></li>
+            <li><a href="/logout">{{dict.navbar.btn5}}</a></li>
           {{else}}
-            <li><a class="modal-trigger" href="/login">{{dict.ru.navbar3.btn1}}</a></li>
+            <li><a class="modal-trigger" href="/login">{{dict.navbar.btn4}}</a></li>
           {{/if}}
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" data-target="dropdown1">{{currentLang}}<i class="material-icons right">arrow_drop_down</i></a></li>    
@@ -40,7 +40,7 @@
   </div>
 </nav>
 
-<ul id="dropdown1" class="dropdown-content">
+<ul id="dropdown1" class="dropdown-content light-blue darken-4">
   {{#each languages}}
     <li><a href='/translation?lang={{@key}}'>{{this}}</a></li>
   {{/each}}

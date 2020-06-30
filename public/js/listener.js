@@ -1,3 +1,4 @@
+// localStorage.setItem('sergeysUser', '!!!!!!!!!!!');
 // if (document.getElementById('qqq')) {
 //   document.getElementById('qqq').addEventListener('click', async (event) => {
 //     try {
@@ -23,9 +24,7 @@ if (document.forms.signup) {
       // Отменяем дефолтное реагирование на нажатие кнопки
       event.preventDefault();
 
-      const {
-        method, action, username, email, password,
-      } = event.target;
+      const { method, action, username, email, password } = event.target;
       // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
       const response = await fetch(action, {
         method,
@@ -45,18 +44,19 @@ if (document.forms.signup) {
       const { status, errUnqUser, errUnqEmail, error } = await response.json();
       if (status === 200) {
         window.location.href = '/login';
+        return;
         // if (status) document.location.replace("/login");
       }
       
       // Обработка ошибок уникальности логина и почты
       if (errUnqUser || errUnqEmail) {
         document.getElementById('errors-unique').innerHTML =
-        render('error', { errUnqUser, errUnqEmail });
+        render('partials/error', { errUnqUser, errUnqEmail });
       };
       // Обработка ошибок уникальности на уровне БД
       if (error) {
         document.getElementById('errors-error').innerHTML =
-        render('error', { error });
+        render('partials/error', { error });
       };
       
     } catch (err) { console.error(err); }
@@ -74,3 +74,5 @@ const options = {
   closeOnClick: true,
 };
 M.Dropdown.init(dropdown1, options);
+const select12 = document.querySelector('#select');
+M.FormSelect.init(select12);

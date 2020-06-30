@@ -4,6 +4,7 @@
 <br /><br />
 {{#each automatList}}
   <div><b>Номер автомата: </b>{{this.id}}</div>
+  <div><b>Город: </b>{{this.adress.city}}</div>
   <div><b>Адрес: </b>{{this.adress.title}}</div>
   <div><b>GPS-координаты: </b>lat: {{this.adress.position.lat}}; lng: {{this.adress.position.lng}}</div>
   <div><b>Статус: </b>{{this.status.flag}}</div>

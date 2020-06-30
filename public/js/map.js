@@ -1,21 +1,21 @@
 let map;
 async function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 55.7522, lng: 37.6156 },
-    zoom: 13,
+  const divMap = document.getElementById('map');
+  const cityName = divMap.getAttribute('name');
+  
+  const response = await fetch(`/map/${cityName}`, { method: 'POST' });
+  if (response.status !== 200) alert('Не получена информация по автоматам');
+  const { automatList, cities } = await response.json();
+  const cityIndex = cities.findIndex((city, index) => {
+    return city.title === cityName;
   });
 
-  const markers = []; const
-    info = [];
+  map = new google.maps.Map(divMap, {
+    center: { lat: cities[cityIndex].position.lat, lng: cities[cityIndex].position.lng },
+    zoom: cities[cityIndex].zoom,
+  });
 
-  const response = await fetch('/map', { method: 'POST' });
-
-  if (response.status !== 200) {
-    error = 'Не получена информация по автоматам';
-    alert(error);
-  }
-  const { automatList } = await response.json();
-
+  const markers = []; const info = [];
   for (let i = 0; i < automatList.length; i++) {
     const title = `автомат №${automatList[i].id}\n`
     + `статус: ${automatList[i].status.flag}\n`
@@ -45,31 +45,8 @@ async function initMap() {
       info[i].open(map, markers[i]);
     });
   }
-
-  const geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: `${lat},${lng}` }, (results, status) => {
-    if (status !== google.maps.GeocoderStatus.OK || !results[0]) {
-      return;
-    }
-    const result = results[0];
-
-    let city; let region; let
-      country;
-
-    for (let i = 0; i < result.address_components.length; i++) {
-      if (result.address_components[i].types[0] === 'locality') {
-        city = result.address_components[i];
-      }
-      if (result.address_components[i].types[0] === 'administrative_area_level_1') {
-        region = result.address_components[i];
-      }
-      if (result.address_components[i].types[0] === 'country') {
-        country = result.address_components[i];
-      }
-    }
-
-    alert(`${city.long_name}, ${region.long_name}, ${country.short_name}`);
-
-    console.log(results);
-  });
 }
+
+document.getElementById('select').addEventListener('change', event => {
+  window.location = event.target.value;
+})

@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   },
   registrationDate: {
     type: String,
-    default: new Date().toUTCString(),
+    default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   }
 });
 

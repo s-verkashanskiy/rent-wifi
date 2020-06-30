@@ -13,6 +13,10 @@ const automatSchema = new mongoose.Schema({
       trim: true,
       required: true,
     },
+    city: {
+      type: String,
+      trim: true,
+    },
     position: {
       lat: Number,
       lng: Number,
@@ -47,5 +51,6 @@ const automatSchema = new mongoose.Schema({
     default: new Date(new Date().getTime() + 3 * 3600 * 1000).toUTCString().replace(/ GMT$/, ''),
   },
 });
+
 
 export default mongoose.model('Automat', automatSchema);

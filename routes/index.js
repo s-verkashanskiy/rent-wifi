@@ -7,9 +7,8 @@ const router = express.Router();
 const saltRounds = 10;
 
 router.get('/', (req, res) => {
-  try {
-    res.render('index', { isHome: true });
-  } catch (err) { console.error(err); }
+  if (req.session.user && req.session.user.isAdmin) return res.redirect('/admin');
+  res.render('index', { isHome: true });
 });
 
 router
@@ -62,8 +61,7 @@ router
 
       if (user && (await bcrypt.compare(password, user.password))) {
         req.session.user = user;
-        console.log('111111111111111111', req.session.user, req.session.prevUrl);
-        
+
         if (req.session.prevUrl) {
           res.redirect(req.session.prevUrl);
           delete req.session.prevUrl;
