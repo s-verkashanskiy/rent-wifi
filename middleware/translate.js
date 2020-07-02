@@ -1,18 +1,19 @@
 import translate from '@vitalets/google-translate-api';
 
 const tranlater = async (text, from = 'ru', to = 'en') => {
-  const result = await translate(text,
-    { from, to });
+  const result = await translate(text, { from, to });
   return result.text;
 };
+// tranlater('привет');
+
 
 export default async (req, res, next) => {
   const dict = req.app.locals.dict.ru;
 
   for (let temp in dict) {
-    
+
     const dict_hbs = Object.entries(dict[temp]);
-    
+
     const translated = await Promise.all(dict_hbs.map(([, value]) => {
       return tranlater(value, 'en', req.session.currentLangShort);
     }));
@@ -22,16 +23,6 @@ export default async (req, res, next) => {
     }, {});
   }
   console.log(req.session.dict);
-  
+
   // next();
 };
-
-
-// async function __(text, to = 'en', from = 'ru') {
-//   const result = await translate(text,
-//     { from, to });
-//   return result.text;
-// };
-// (async () => {
-//   const result = await __(`текст`, 'zh-CN');
-// })();
