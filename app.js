@@ -3,6 +3,7 @@ import useMiddleware from './middleware/index.js';
 import indexRouter from './routes/index.js';
 import mapRouter from './routes/map.js';
 import translationRouter from './routes/translate.js';
+import chatRouter from './routes/chat.js';
 import adminRouter from './routes/admin.js';
 
 const app = express();
@@ -13,6 +14,7 @@ useMiddleware(app);
 app.use('/', indexRouter);
 app.use('/map', mapRouter);
 app.use('/translation', translationRouter);
+app.use('/chat', chatRouter);
 app.use('/admin', adminRouter);
 
 export default app;

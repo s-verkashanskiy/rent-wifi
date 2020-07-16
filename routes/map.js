@@ -4,12 +4,12 @@ import { automatList, cities }  from '../seed/seeder.js';
 
 router.route('/:id')
   .get((req, res) => {
-    req.session.currentCity = req.params.id;
-    res.render('map', { cities, currentCity: req.params.id});
+    // console.log('<<<<<<<<<<<<<MAP', req.params.id);
+    
+    res.render('map', { cities, currentCity: req.params.id });
   })
   .post((req, res) => {
-    
-    res.json({ automatList, cities });
+    res.json({ status: 200, automatList, cities });
   });
 
 

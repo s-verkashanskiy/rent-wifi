@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sharerouter",
+  "private_key_id": "2c5784b573bc750e597a9b132e5474774f066d10",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/oyg7MA0+YPdF\nG0WTnIMnjXonGrRivyp/mqVtyFbijUHM3yrZd7602oic4dQ8r1N545z5cyaSTWTp\ntHaMMHFtmAFHP/cJJ9fmRN6cpt5DkS2klM5TDxevTuzDu5aKOEeGQMrqz+sT6m1b\n/b0BaobpLXtnmzgn3XF41ErXnK1nlzJn/6bFto+4lkS0DPJZqgN9ou/hv06wakR0\nKLCYwQvesOfPRojv5uOS5Ju7k1w+J9Ae0NvGwNCzkgEG9KksbN3WUNlNPmWdJ8Gb\nOJXDbqwxnjFo7UnsLVmcic8pCqm9jmJbhLo0dhRIazEMB2B2Ax3UNG1YAzlV1UH5\n0TPWYKmhAgMBAAECggEAAxEYkhmUIq22U1BVtMBTfyjrUyV2d3c/9hFlXkGvde9v\nsG3DWlN+tVdNyktDubIOwSOl0H5PDWu95qQNJXPv2BfvmvfAoNsW1aAVRcGWtb3a\nEpkmM/Z+PmoszY/qqjJZnwHvMA1iVuagjVFHlVaCi3LUrQfTFkc70Jn+yx8eTXWw\nbAiYMD5betbVn0MFqsNWGBUw0jextFpW/jrJdwqnB7sVQ/rV188gxjmWigxMplg2\nPG812ITwTndjnQ6xV/CYPAFHXKqUp9yycUn5zZrUbAYjMjrfR9ss+YFDL5PvTPjA\ncyfgt4AL3PFB45yW+4YCFYAwjgkNzBRBjwusIQhp2QKBgQDgVyOIXO6hV7Ovvkuz\nfkufys+JgaW0e6SS2aNfmaFa0qt9J+R49vQP5+svOq777BtYy7sFmKQJsrpV8Fx0\nBVYlFjKbCApfHFD99IwHgDCe4e1DJXsh8DnRZvGbB6uj6r/tnvnA/EEF6sWgS7wF\n3j2Qwovy/PycP2wAHBc3V+rkSQKBgQDaronJKNk/a1roVYPVXumLssGa0PKJUmiC\nWFBnKLueCVGVefKL0CbecZiG0mWLF7wUZDxN1ICh7Lp64h8puCJdb7KCgcrV2gn/\n70Urzaj6N2ZZGHWKU9Bsokdp+yl0RuEGqgODm6FVW7H0FlTKFYLTvbxwajwPN9vf\n+8EVVLhqmQKBgCA1Qnu0Y+o0Di8gEfw+GJtjYbJrM6Aa1EDlECiMhPbmIgrA7HNV\neSrDcCeCtFakyjRQY5RlGr/tsgTekldx4LFIY5GQcPTAuvwK3QPCqrhU1Vx7iBcS\nRyrCLdPFISZScKWr2k2Tqb4wu5jM5rys8IfU9oS3P4krLdVCMy8V5zpJAoGBAKvK\nSXu5l1D26SdzZmmMcjPIbcdNNfsive8HqcIggaMY9vpSHnQvRRmia4weZJ7sOlha\nlfUeZx7NdYFrecewW27DfJyBkfKFoy1nrhNHMOO/+assR8ovJaDxquBa6qnptIUj\nsjcFX6xKqHVzxZArbechOpOlISFjZFuEzp4PPAChAoGAd5IwGB/9uFwFQ3tYEHDv\n3tfhNnv2OlCVRVipIcPNXKSStCcPmlkf6GKpAe/E4BLdpUD9O541vpja4NDCqS7/\nRHy8o5Fi9KLzcfGivOkLN7qr61wBZBsQSlrqhJv6VgaTF4PeZbD/75BTxNdoQ6II\n+ciZi4/DANCOrZQGbsasVJg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-kcjztkg4osus@sharerouter.iam.gserviceaccount.com",
+  "client_id": "117143412474066728328",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-kcjztkg4osus%40sharerouter.iam.gserviceaccount.com"
+}
+AIzaSyD4LCL0f3WH3lN45xgK6K3yLv7TZqXWBYw

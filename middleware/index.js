@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import hbs from 'hbs';
 import fs from 'fs';
 import './db-connect.js';
+import './web-sockets-bot.js';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import sessionFileStore from 'session-file-store';
@@ -14,8 +15,7 @@ const FileStore = sessionFileStore(session);
 export default function (app) {
   // translater
   app.locals.dict = dict;
-  // app.locals.languages = dict.ru.languages;
-  // app.locals.currentLang = dict.ru.languages.ru;
+// console.log(app.locals.dict);
 
   // app.use(translater);
 
@@ -49,18 +49,19 @@ export default function (app) {
       cookie: {
         expires: 6000000,
       },
+      dict: dict.ru,
     }),
   );
 
   app.use((req, res, next) => {
     res.locals.isAuth = !!req.session.user;
-    
+
     res.locals.currentCity = req.session.currentCity || dict.ru.map.cities[0];
 
     res.locals.dict = req.session.dict || dict.ru;
-    res.locals.languages = req.session.languages || dict.ru.languages;
-    res.locals.currentLang = req.session.currentLang || dict.ru.languages.ru;
-    res.locals.currentLangShort = req.session.currentLangShort || 'ru';
+
+    res.locals.currentLang = req.session.currentLang || dict.ru.languages['ru'];
+    // res.locals.currentLangShort = req.session.currentLangShort || 'ru';
 
     if (req.session.user) {
       res.locals.userName = req.session.user.username;

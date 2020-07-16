@@ -6,4 +6,14 @@
   <a href="/admin/interfaces" class="collection-item">исправления перевода интерфеса сайта</a>
   <a href="/admin/settings" class="collection-item">настройка Констант сайта (контактные телефоны и т.д.)</a>
   <a href="/admin/profile" class="collection-item active">изменения пароля администратора</a>
+  <form name="edititem" action="/items/{{item._id}}" class="hidden">
+    <div>
+      <label>Введите новый пароль:</label>
+      <input type="password" name="password" required />
+    </div>
+    <br />
+    <div>
+      <input class="btn btn-primary" type="submit" value="Обновить" />
+    </div>
+  </form>
 </div>

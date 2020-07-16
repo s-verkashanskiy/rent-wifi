@@ -1,67 +1,50 @@
-// localStorage.setItem('sergeysUser', '!!!!!!!!!!!');
-// if (document.getElementById('qqq')) {
-//   document.getElementById('qqq').addEventListener('click', async (event) => {
-//     try {
-//       if (event.target.id === 'stat') {
-//       // Отменяем дефолтное реагирование на нажатие кнопки
-//         event.preventDefault();
+document.forms.signup?.addEventListener('submit', async (event) => {
+  // Отменяем дефолтное реагирование на нажатие кнопки
+  event.preventDefault();
 
-//         // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
-//         const responseponse = await fetch('/stat', { method: 'GET' });
-//         const { status, username, rounds } = await responseponse.json();
+  const { method, action, username, email, password } = event.target;
+  // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
+  try {
+    const response = await fetch(action, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        // Считываем значение из полей формы (относительно нажатой кнопки)
+        username: username.value,
+        email: email.value,
+        password: password.value,
+      }),
+    });
+    
+    // есть ошибки ...
+    const { status, errUnqUser, errUnqEmail, error } = await response.json();
+    if (status === 200) {
+      window.location.href = '/login';
+      return;
+      // if (status) document.location.replace("/login");
+    }
 
-//         if (status === 200) {
-
-//         }
-//       }
-//     } catch (err) { console.error(err); }
-//   });
-// }
-
-if (document.forms.signup) {
-  document.forms.signup.addEventListener('submit', async (event) => {
-    try {
-      // Отменяем дефолтное реагирование на нажатие кнопки
-      event.preventDefault();
-
-      const { method, action, username, email, password } = event.target;
-      // Формируем AJAX запрос к сервуру, передавая введенные в форму данные
-      const response = await fetch(action, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          // Считываем значение из полей формы (относительно нажатой кнопки)
-          username: username.value,
-          email: email.value,
-          password: password.value,
-        }),
-      });
-      // Перейти на страницу аутентификации если нет ошибок
-      
-      // есть ошибки ...
-      const { status, errUnqUser, errUnqEmail, error } = await response.json();
-      if (status === 200) {
-        window.location.href = '/login';
-        return;
-        // if (status) document.location.replace("/login");
-      }
-      
-      // Обработка ошибок уникальности логина и почты
-      if (errUnqUser || errUnqEmail) {
-        document.getElementById('errors-unique').innerHTML =
+    // Обработка ошибок уникальности логина и почты
+    if (errUnqUser || errUnqEmail) {
+      document.getElementById('errors-unique').innerHTML =
         render('partials/error', { errUnqUser, errUnqEmail });
-      };
-      // Обработка ошибок уникальности на уровне БД
-      if (error) {
-        document.getElementById('errors-error').innerHTML =
+    };
+    // Обработка ошибок уникальности на уровне БД
+    if (error) {
+      document.getElementById('errors-error').innerHTML =
         render('partials/error', { error });
-      };
-      
-    } catch (err) { console.error(err); }
-  });
-}
+    };
+
+  } catch (err) { console.error(err); }
+});
+
+// const div_element = event.target.parentElement.nextElementSibling;
+// div_element.classList.toggle('hidden');
+
+
+
 
 function render(templateName, data = {}) {
   const str = document.getElementById(`${templateName}Template`).content.textContent;

@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h4>Чат технической поддержки</h4>
+</div>
+
+
+<div class="container row">
+  <div class="jumbotron col-sm-4 pull-center">
+    <div id="errors-error"></div>
+    <br />
+    <br />
+    <br />
+    <ul id="messages">
+    </ul>
+    <br />
+    <form name="sendForm">
+      <label>Сообщение: <input name="message" type="text" placeholder="ваше сообщение" required></label>
+      <label>Имя: <input name="nickname" type="text" placeholder="ваше имя" required></label>
+      <button name="sendButton" type="submit">Отправить</button>
+    </form>
+
+  </div>
+</div>
+
+
+<script src="/js/ws.js"></script>
+

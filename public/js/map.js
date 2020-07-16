@@ -2,13 +2,17 @@ let map;
 async function initMap() {
   const divMap = document.getElementById('map');
   const cityName = divMap.getAttribute('name');
-  
+
   const response = await fetch(`/map/${cityName}`, { method: 'POST' });
+
   if (response.status !== 200) alert('Не получена информация по автоматам');
   const { automatList, cities } = await response.json();
-  const cityIndex = cities.findIndex((city, index) => {
-    return city.title === cityName;
+
+  let cityIndex;
+  cities.forEach((city, index) => {
+    if (city.title == cityName) cityIndex = index;
   });
+// console.log(cities, cityName, cityIndex);
 
   map = new google.maps.Map(divMap, {
     center: { lat: cities[cityIndex].position.lat, lng: cities[cityIndex].position.lng },
@@ -49,4 +53,4 @@ async function initMap() {
 
 document.getElementById('select').addEventListener('change', event => {
   window.location = event.target.value;
-})
+});

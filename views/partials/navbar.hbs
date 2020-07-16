@@ -16,6 +16,7 @@
           {{/if}}
           {{#if isAuth }}{{else}}
             <li><a href="/signup">{{dict.navbar.btn3}}</a></li>
+            <li><a href="/chat">Чат</a></li>
           {{/if}}
         {{/if}}
       </ul>
@@ -41,7 +42,7 @@
 </nav>
 
 <ul id="dropdown1" class="dropdown-content light-blue darken-4">
-  {{#each languages}}
+  {{#each dict.languages}}
     <li><a href='/translation?lang={{@key}}'>{{this}}</a></li>
   {{/each}}
 </ul>
